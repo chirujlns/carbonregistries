@@ -3,11 +3,13 @@ import Sidebar from "./components/Sidebar";
 import Rightbar from "./components/Rightbar";
 import Navbar from "./components/Navbar";
 import { Box, Stack } from "@mui/material";
+import { Home } from "@mui/icons-material";
 
 function App() {
   return (
     <Box>
       <Navbar/>
+      <Home/>
       <Stack direction="row" whiteSpace={2} justifyContent="center">
         <Sidebar/>
         <Feed/>
