@@ -34,6 +34,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -47,7 +48,7 @@ const Navbar = () => {
           <Badge badgeContent={4} color="error">
             <Mail />
           </Badge>
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={7} color="error">
             <Notifications />
           </Badge>
           <Avatar sx={{ height: "30", width: "30" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ4BTbYjt6bcJ067BwNCz51fy9FBmr5Gck7w&usqp=CAU"  
@@ -81,5 +82,4 @@ const Navbar = () => {
     </AppBar>
   )
 }
-
 export default Navbar
