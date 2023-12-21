@@ -17,18 +17,18 @@ function App() {
     }
   })
   return (
-    <ThemeProvider theme={darkTheme}>
+    // <ThemeProvider theme={darkTheme}>
       <Box bgcolor={"background.default"} color={"text.primary"}>
-        <Navbar />
+        {/* <Navbar />
         <Stack direction="row" whiteSpace={2} justifyContent="center">
           <Sidebar setMode={setMode} mode={mode} />
           <Feed />
           <Rightbar />
         </Stack>
-        <Add />
-        {/* <Login /> */}
+        <Add /> */}
+        <Login />
       </Box>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 

@@ -1,46 +1,44 @@
-import { Avatar, Box, Button, Checkbox, FormControlLabel, Grid, IconButton, InputAdornment, Link,  Paper,  TextField, Typography} from '@mui/material';
+import { Avatar, Box, Button, Checkbox, FormControlLabel, Grid, IconButton, InputAdornment, Link, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
-import { LockOutlined, Person, Visibility, VisibilityOff } from '@mui/icons-material';
+import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Login = () => {
-    const [showEmailAddress, setShowEmailAddress] = useState(false);
+
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleClickShowEmailAddress = () => setShowEmailAddress((show) => !show);
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const handleMouseDownEmailAddress = (event) => {
-        event.preventDefault();
-    };
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
-    const handleSubmit = () => {    
+    const handleSubmit = () => {
         console.log("Login")
-    }   
+    }
     return (
-            <Box sx={{
-                
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor:"lightgrey"
-            }} >
-                <Paper sx={{
-                display:"flex",
-                flexDirection:"column",                
-                justifyContent:"center",
-                alignItems:"center",
-                elevation: 2   
+        <Box sx={{
+
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "lightgrey"
+        }} >
+            
+                <Box sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    elevation: 2,
+                    borderRadius: 2,
                 }}>
                     <Avatar sx={{ margin: 1, bgcolor: "error.main" }}>
                         <LockOutlined />
                     </Avatar>
                     <Typography component="h1" variant="h4">SignIn</Typography>
-                    <Box component="form"sx={{ mt: 1 }}>
+                    <Box component="form" sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required fullWidth
@@ -54,11 +52,11 @@ const Login = () => {
                                     <InputAdornment position="end">
                                         <IconButton
                                             aria-label="toggle EmailAddress visibility"
-                                            onClick={handleClickShowEmailAddress}
-                                            onMouseDown={handleMouseDownEmailAddress}
+                                            // onClick={handleClickShowEmailAddress}
+                                            // onMouseDown={handleMouseDownEmailAddress}
                                             edge="end"
                                         >
-                                            {showEmailAddress ? <Person /> : <Person />}
+                                            {/* {showEmailAddress } */}
                                         </IconButton>
                                     </InputAdornment>
                                 ),
@@ -96,7 +94,7 @@ const Login = () => {
                             fullWidth
                             variant="contained"
                             onSubmit={(e) => { handleSubmit() }}
-                            >Login</Button>
+                        >Login</Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">Forgot password</Link>
@@ -106,8 +104,9 @@ const Login = () => {
                             </Grid>
                         </Grid>
                     </Box>
-                </Paper>
-            </Box >
+                </Box>
+            
+        </Box >
     )
 }
 export default Login

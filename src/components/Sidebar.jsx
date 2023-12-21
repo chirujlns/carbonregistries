@@ -1,4 +1,4 @@
-import { Create, Home, Nightlight, Settings, ShoppingCart, SupervisedUserCircle, TransferWithinAStation } from '@mui/icons-material'
+import { AddCard, Create, Home, Nightlight, Pending, Settings, ShoppingCart, SupervisedUserCircle, TransferWithinAStation } from '@mui/icons-material'
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch } from '@mui/material'
 import React from 'react'
 
@@ -45,6 +45,7 @@ const Sidebar = ({ mode, setMode }) => {
           <ListItem disablePadding>
             <ListItemButton component="a" href="#simple-list">
               <ListItemIcon>
+              <AddCard/>
               </ListItemIcon>
               <ListItemText primary="Retire Credits" />
             </ListItemButton>
@@ -59,14 +60,14 @@ const Sidebar = ({ mode, setMode }) => {
             </ListItemButton>
           </ListItem>
 
-          {/* <ListItem disablePadding>
+          <ListItem disablePadding>
             <ListItemButton component="a" href="#simple-list">
               <ListItemIcon>
                 <Pending />
               </ListItemIcon>
-              <ListItemText primary="PendingTransactions" />
+              <ListItemText primary="Pending Tsnx" />
             </ListItemButton>
-          </ListItem> */}
+          </ListItem>
 
 
           <ListItem disablePadding>
@@ -83,7 +84,7 @@ const Sidebar = ({ mode, setMode }) => {
               <ListItemIcon>
                 <Nightlight />
               </ListItemIcon>
-              <Switch onChange={e => setMode(mode === "light" ? "dark" : "light")} />
+              <Switch onChange={e => setMode(mode === "light" ? "dark" : "light")} color="success"/>
             </ListItemButton>
           </ListItem>
         </List>

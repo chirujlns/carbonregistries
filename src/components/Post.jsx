@@ -2,32 +2,31 @@ import { Favorite, FavoriteBorder, MoreVert, Share } from '@mui/icons-material'
 import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, IconButton, Typography } from '@mui/material'
 import React from 'react'
 
-const Post = () => {
+const Post = (props) => {
+  const { avatarSrc, title, subheader, postImage, content } = props;
   return (
         <Card sx={{margin:5}}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: "red" }} aria-label="recipe" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ4BTbYjt6bcJ067BwNCz51fy9FBmr5Gck7w&usqp=CAU"/>
+            <Avatar sx={{ bgcolor: "red" }} aria-label="" src={avatarSrc}/>
           }
           action={
             <IconButton aria-label="settings">
               <MoreVert />
             </IconButton>
           }
-          title="KillerKnight"
-          subheader="december 20, 2023"
+          title={title}
+          subheader={subheader}
         />
         <CardMedia
           component="img"
           height="20%"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHRWUp-j5kPG3Ls4W5gWDf2f05nRRDu5x6Q&usqp=CAU"
-          alt="Dark Knignt"
+          image={postImage}
+          alt={title}
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-          "The Dark Knight" is a superhero film directed by Christopher Nolan and released in 2008. 
-          It is the second installment in Nolan's Batman film trilogy, following "Batman Begins" (2005) and preceding "The Dark Knight Rises" (2012). 
-          Here are some key details about "The Dark Knight":
+            {content}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
