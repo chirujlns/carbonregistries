@@ -8,27 +8,26 @@ import Add from "./components/Add";
 import { useState } from "react";
 
 function App() {
-
-  const [mode, setMode] = useState("light")
+  const [mode, setMode] = useState("light");
 
   const darkTheme = createTheme({
     palette: {
-      mode: mode
-    }
-  })
+      mode: mode,
+    },
+  });
   return (
-    // <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Box bgcolor={"background.default"} color={"text.primary"}>
-        {/* <Navbar />
+        <Navbar />
         <Stack direction="row" whiteSpace={2} justifyContent="center">
           <Sidebar setMode={setMode} mode={mode} />
           <Feed />
           <Rightbar />
         </Stack>
-        <Add /> */}
+        <Add />
         <Login />
       </Box>
-    // </ThemeProvider>
+    </ThemeProvider>
   );
 }
 
