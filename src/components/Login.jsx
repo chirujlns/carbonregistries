@@ -2,8 +2,17 @@ import { Avatar, Box, Button, Checkbox, FormControlLabel, Grid, IconButton, Inpu
 import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 import { useState } from 'react';
 
+
+
 const Login = ({ open, onClose }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -11,8 +20,15 @@ const Login = ({ open, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Login")
-        onClose();
+        const correctEmail = 'd.vijayashokkumar143@gmail.com';
+        const correctPassword = 'Vijay143';
+
+        if (email === correctEmail && password === correctPassword) {
+            console.log("Login")
+            onClose();
+        } else {
+            setError('Invalid email or password. Plese try again.');
+        }
     }
 
     return (
@@ -24,11 +40,11 @@ const Login = ({ open, onClose }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '10px',
-                backgroundColor: 'lightgrey',
+                backgroundColor: 'lightblue',
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                zIndex: 1000, // Ensure the login form is above other elements
+                zIndex: 1000,
             }} >
 
             <Paper
@@ -59,10 +75,10 @@ const Login = ({ open, onClose }) => {
                         required
                         sx={{ width: "80%" }}
                         id="email"
-                        label="Email Address"
+                        value={email}
+                        onChange={handleEmailChange}
+                        label="Email"
                         name="email"
-                        autoComplete="email"
-                        autoFocus
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -79,11 +95,12 @@ const Login = ({ open, onClose }) => {
                         margin="normal"
                         required
                         sx={{ width: "80%" }}
-                        id="email"
+                        id="password"
                         label="Password"
                         name="password"
-                        autoComplete="password"
-                        autoFocus
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -103,6 +120,13 @@ const Login = ({ open, onClose }) => {
                         control={<Checkbox value="remember" color="primary" />}
                         label="Remember me..!"
                     />
+
+                    {error && (
+                        <Typography variant="body2" color="error" mt={1}>
+                            {error}
+                        </Typography>
+                    )}
+
                     <Button fullWidth type="Submit" variant="contained">
                         Login
                     </Button>

@@ -1,8 +1,8 @@
 import Login from './Login';
 import React, { useState } from 'react'
-import { Toolbar, Typography, styled, AppBar, Badge, Avatar, InputBase, Box, Menu, MenuItem, Tooltip, IconButton } from '@mui/material'
+import { Toolbar, Typography, styled, AppBar, Badge, Avatar, InputBase, Box, Menu, MenuItem, Tooltip,  } from '@mui/material'
 import { AccountBalanceWallet, Mail, Notifications, Park } from '@mui/icons-material'
-import LogoutIcon from '@mui/icons-material/Logout';
+
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -46,9 +46,9 @@ const Navbar = () => {
     setUserMenuOpen(null);
   };
 
-  const handleLoginToggle = () => {
-    setLoginFormOpen((prevValue) => !prevValue);
-  };
+  const handleLogout = () =>{
+    console.log('Logout clicked');
+  }
 
 
   return (
@@ -64,13 +64,6 @@ const Navbar = () => {
 
         <Icons>
           <Badge badgeContent={0} color="error">
-            <Tooltip title="login">
-              <IconButton color="inherit" onClick={handleLoginToggle}>
-                <LogoutIcon/>
-              </IconButton>
-            </Tooltip>
-          </Badge>
-          <Badge badgeContent={0} color="error">
             <Tooltip title="Wallet">
               <AccountBalanceWallet />
             </Tooltip>
@@ -81,7 +74,7 @@ const Navbar = () => {
             </Tooltip>
           </Badge>
           <Badge badgeContent={7} color="error">
-            <Tooltip titl="Notifications">
+            <Tooltip title="Notifications">
               <Notifications />
             </Tooltip>
           </Badge>
@@ -99,8 +92,6 @@ const Navbar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ4BTbYjt6bcJ067BwNCz51fy9FBmr5Gck7w&usqp=CAU"
           />
           <Typography variant="span"> KillerKnight </Typography>
-        </UserBox>
-
         <Menu
           id="user-menu"
           anchorEl={userMenuOpen}
@@ -109,11 +100,12 @@ const Navbar = () => {
         >
           <MenuItem>Profile</MenuItem>
           <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
+        </UserBox>
       </StyledToolbar>
       <Login open={loginFormOpen} onClose={() => setLoginFormOpen(false)} />
     </AppBar>
   )
 }
-export default Navbar
+export default Navbar;
