@@ -5,16 +5,21 @@ const Rightbar = () => {
   return (
     <Box flex={2} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed" width={300}>
-        <Typography variant='h6' fontWeight={100}>
+        <Typography variant='h6' fontWeight={100} mb={1}>
           Online Friends
         </Typography>
-        <AvatarGroup max={5}>
+        <AvatarGroup max={8}>
           <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
           <Avatar alt="Travis Howard" src="https://mui.com/static/images/avatar/2.jpg" />
           <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/3.jpg" />
           <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/4.jpg" />
           <Avatar alt="Robert" src="https://mui.com/static/images/avatar/5.jpg" />
           <Avatar alt="Johnwick" src="https://mui.com/static/images/avatar/6.jpg" />
+          <Avatar alt="Pepper" src="https://mui.com/static/images/avatar/7.jpg" />
+          <Avatar alt="Jarvis" src="https://mui.com/static/images/avatar/8.jpg" />
+          <Avatar alt="Friday" src="https://mui.com/static/images/avatar/9.jpg" />
+          <Avatar alt="Irish" src="https://mui.com/static/images/avatar/10.jpg" />
+          <Avatar alt="Steave" src="https://mui.com/static/images/avatar/11.jpg" />
         </AvatarGroup>
 
         <Typography variant='h6' fontWeight={100} mt={2} mb={2}>
